@@ -8,6 +8,7 @@ import re
 from random import shuffle
 import fiona
 from shapely.geometry import shape
+import warnings
 
 
 class DataInitialization:
@@ -93,8 +94,8 @@ class DataInitialization:
         if random_split:
             shuffle(file_list)
             
-        for idx, (width, height) in enumerate(sizes):
-            if idx == 0:
+        for idx_size, (width, height) in enumerate(sizes):
+            if idx_size == 0:
                 print(f'Splitting all input images into tiles of {width} x {height}')
             else:
                 print(f'Splitting train input images into tiles of {width} x {height}')
@@ -122,9 +123,9 @@ class DataInitialization:
                     continue
                 if subset_empty[subset] and not self.force:
                     continue
-                if idx > 0 and subset != "train":
+                if idx_size > 0 and subset != "train":
                     continue
-                    
+                
                 with rasterio.open(os.path.join(self.img_dir, input_filename)) as inds:
                     meta = inds.meta.copy()
                     
@@ -187,7 +188,11 @@ class DataInitialization:
         for file in os.listdir(anno_dir):
             if file [-3:] == "shp":
                 shape_file = file
+                if file.endswith("v2.shp"):
+                    break
         assert shape_file is not None, 'anno_dir must contain .shp file with annotations'
+        if not "v2" in shape_file:
+            warnings.warn("Warning: Shapefile does not contain ``v2``. Make sure, the updated images and annotations are used.")
         labels = None
     
         if subsets is None:

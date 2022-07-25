@@ -99,7 +99,7 @@ class RwandaVisualization:
         
         os.makedirs(out_dir, exist_ok=True)
         if len(os.listdir(out_dir)) <= 1:
-            print(f"Saving inference results into {out_dir}.")
+            print(f"\nSaving inference results into {out_dir}.")
             progress_bar = mmcv.ProgressBar(len(self.dataset))
             for item in self.dataset:
                 self.plot_inference_results(item, show=False, out_dir=out_dir, wait_time=2)

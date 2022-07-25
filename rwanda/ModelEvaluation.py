@@ -127,7 +127,7 @@ def evaluate_rwanda(cfg, checkpoint, subset="val", out_dir=None):
         metrics=["bbox", "segm"]
         eval_kwargs.update(dict(metric=metrics, **kwargs))
         metric = dataset.evaluate(outputs, **eval_kwargs)
-        metric_dict = dict(config=cfg, metric=metric)
+        metric_dict = dict(config=cfg.pretty_text, metric=metric)
         if out_dir is not None and rank == 0:
             print(f'\nwriting results to {out_dir}')
             mmcv.dump(metric_dict, json_file)
