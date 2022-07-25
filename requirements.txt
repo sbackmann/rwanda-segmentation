@@ -1,5 +1,4 @@
 # File changed from MMDetection Version
-cocoapi/PythonAPI
 rasterio
 fiona
 -r requirements/build.txt
