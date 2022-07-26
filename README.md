@@ -13,7 +13,7 @@ The code that was added in the course of this thesis can be found in the folder 
 ```shell
 pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/torch_stable.html
 ```
-**Step 2:** Install [MMCV](https://github.com/open-mmlab/mmcv) using [MIM](https://github.com/open-mmlab/mim).
+**Step 2:** Install [MMCV](https://github.com/open-mmlab/mmcv) using [MIM](https://github.com/open-mmlab/mim) (it might be necessary to restart the shell, so that the mim command is recognized).
 ```shell
 pip install -U openmim
 mim install mmcv-full==1.5.0
