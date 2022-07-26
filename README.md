@@ -2,7 +2,7 @@
 
 
 ## Introduction
-Rwanda-Instance provides the code for the Bachelor Thesis _Detection and Segmentation of Tree Instances on a Rwandan Satellite Dataset_. It uses MMDetection 2.25.0, an open source object detection toolbox based on PyTorch.
+Rwanda-Instance provides the code for the Bachelor Thesis _Detection and Segmentation of Tree Instances on a Rwandan Satellite Dataset_. It uses [MMDetection](https://github.com/open-mmlab/mmdetection) 2.25.0, an open source object detection toolbox based on PyTorch.
 
 The code that was added in the course of this thesis can be found in the folder ``TreeSegmentation-Rwanda``. The directory MMDetection contains the MMDetection model library, parts of its code were modified to better work with the project. Additionally, the folder ``cocoapi`` is a modified version (e.g., an increased number of detections for AP calculation) of https://github.com/cocodataset/cocoapi.
 
