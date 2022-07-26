@@ -92,7 +92,7 @@ class ModelInitialization:
             print("Weights already downloaded.")
         else:
             print(f" Downloading trained {self.experiment} weights. Please wait...")
-            repo_release = "https://github.com/sbackmann/rwanda-instance/releases/download/v2.25.0/"
+            repo_release = "https://github.com/sbackmann/rwanda-segmentation/releases/download/weights/"
             download_link = repo_release + weight_files[self.experiment]
             bash_command = f"wget {download_link} -P {os.path.join('./experiments', self.experiment_dir)}"
             subprocess.run(bash_command, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)

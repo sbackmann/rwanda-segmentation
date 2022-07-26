@@ -20,7 +20,7 @@ mim install mmcv-full==1.5.0
 ```
 **Step 3:** Clone repository and install MMDetection.
 ```shell
-git clone https://github.com/sbackmann/rwanda-instance
+git clone https://github.com/sbackmann/rwanda-segmentation
 cd rwanda-instance
 pip install -v -e MMDetection
 pip install cocoapi/PythonAPI
@@ -30,7 +30,7 @@ After finishing the installation steps, the satellite images and the annotations
 
 Within the ``TreeSegmentation-Rwanda`` folder, two notebooks are available. ``Training.ipynb`` enables to reproduce the training that led to the models evaluated in the thesis. ``Testing.ipynb`` lets the user inference with the trained model weights from the thesis (or using their own) and also provides the means to evaluate the model metrics for veryfing the AP results.
 
-All the experiments are located in the directory ``TreeSegmentation-Rwanda/experiments`` and are named following the pattern {Model}{Backbone}_{ConfigurationChanges}. For the configuration changes, see the tables specifying the change keys in the thesis. The model weights are released [here](https://github.com/sbackmann/rwanda-instance/releases/tag/v2.25.0) and will be downloaded automatically if the respective experiment is selected.
+All the experiments are located in the directory ``TreeSegmentation-Rwanda/experiments`` and are named following the pattern {Model}{Backbone}_{ConfigurationChanges}. For the configuration changes, see the tables specifying the change keys in the thesis. The model weights are released [here](https://github.com/sbackmann/rwanda-segmentation/releases/tag/weights) and will be downloaded automatically if the respective experiment is selected.
 
 ## License
 
