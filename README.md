@@ -18,7 +18,7 @@ pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f 
 pip install -U openmim
 mim install mmcv-full==1.5.0
 ```
-**Step 3:** Clone repository and install the project (``requirements.txt`` does not need to be installed manually).
+**Step 3:** Clone repository and install MMDetection.
 ```shell
 git clone https://github.com/sbackmann/rwanda-instance
 cd rwanda-instance
