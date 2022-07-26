@@ -2,6 +2,7 @@ import os
 import subprocess
 import pickle
 import re
+from mmcv.utils import Config
 
 class ModelInitialization:
     
@@ -124,6 +125,7 @@ class ModelInitialization:
         cfg.data.test.ann_file = os.path.join(anno_dir, "test_annotation_coco.json")
         cfg.data.test.img_prefix = os.path.join(img_dir, "test")
         cfg.load_from = checkpoint
+        cfg = Config(cfg._cfg_dict, filename=f"../MMDetection/{cfg.filename[3:]}")
         print(f"Loaded configuration for {self.experiment}.")
         return cfg
     

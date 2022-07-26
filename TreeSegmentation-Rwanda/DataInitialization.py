@@ -197,7 +197,8 @@ class DataInitialization:
     
         if subsets is None:
             subsets = self.subsets
-
+        
+        # Create JSON file for each subset
         for subset in subsets:
             if load_prefix is None:
                 file_prefix= ""
@@ -206,9 +207,9 @@ class DataInitialization:
             out_file =  anno_dir + f'/{file_prefix}{subset}_annotation_coco.json'
             if os.path.exists(os.path.join(out_file)) and not self.force:
                 continue
-            
+                
+            # Read .shp data only in the first iteration
             if not labels:
-                # Read .shp data
                 with fiona.open(os.path.join(anno_dir, shape_file),
                             "r", SHAPE_RESTORE_SHX="YES") as shapefile:
 
@@ -218,6 +219,7 @@ class DataInitialization:
                 # Remove falsy shapes with two sets of coordinates (2 in total)
                 labels = [label for label in labels_raw if len(label["coordinates"]) == 1]
             
+            # Set output directory
             img_dir = os.path.join(self.img_output_dir, subset)
 
             annotations = []
@@ -226,7 +228,9 @@ class DataInitialization:
             num_too_much = 0
             num_images = 0
             
-            # Add all images with their annotations to the dataset
+            # For each image patch, gather all annotations and add them to the JSON file. As this gets
+            # rather slow for a lot of image patches and a long list of annotations, it should be im-
+            # plemented more efficiently for larger datasets.
             for idx, filename in enumerate(os.listdir(img_dir)):
                 if filename[-3:] != "tif":
                     continue
@@ -248,6 +252,7 @@ class DataInitialization:
 
                 height, width = out_image.shape[1:]
 
+                # Load all annotations for the image patch
                 obj_count, TOO_MANY_OBJECTS = self._load_annotations(out_image, out_bounds, labels,
                                                                      idx, obj_count, annotations, max_number_gt)
 
