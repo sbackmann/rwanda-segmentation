@@ -21,7 +21,7 @@ mim install mmcv-full==1.5.0
 **Step 3:** Clone repository and install MMDetection.
 ```shell
 git clone https://github.com/sbackmann/rwanda-segmentation
-cd rwanda-instance
+cd rwanda-segmentation
 pip install -v -e MMDetection
 pip install cocoapi/PythonAPI
 ```
