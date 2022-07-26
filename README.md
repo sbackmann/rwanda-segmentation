@@ -4,7 +4,7 @@
 ## Introduction
 Rwanda-Instance provides the code for the Bachelor Thesis _Detection and Segmentation of Tree Instances on a Rwandan Satellite Dataset_. It uses MMDetection 2.25.0, an open source object detection toolbox based on PyTorch.
 
-The code that was added in the course of this thesis can be found in the folder ``rwanda``. However, parts of the remaining code were modified to better work with the project. Additionally, the folder ``cocoapi`` is a modified version (e.g., an increased number of detections for AP calculation) of https://github.com/cocodataset/cocoapi.
+The code that was added in the course of this thesis can be found in the folder ``TreeSegmentation-Rwanda``. The directory MMDetection contains the MMDetection model library, parts of its code were modified to better work with the project. Additionally, the folder ``cocoapi`` is a modified version (e.g., an increased number of detections for AP calculation) of https://github.com/cocodataset/cocoapi.
 
 
 ## Installation
@@ -22,15 +22,15 @@ mim install mmcv-full==1.5.0
 ```shell
 git clone https://github.com/sbackmann/rwanda-instance
 cd rwanda-instance
-pip install -v -e .
+pip install -v -e MMDetection
 pip install cocoapi/PythonAPI
 ```
 ## Getting Started
-After finishing the installation steps, the satellite images and the annotations should be pasted into the respective folders (``rwanda/data/Training_Images_RGB`` for the images and ``rwanda/data/Training_tree_polygons`` for the annotation files including the ``.shp`` file).
+After finishing the installation steps, the satellite images and the annotations should be pasted into the respective folders (``TreeSegmentation-Rwanda/data/Training_Images_RGB`` for the images and ``TreeSegmentation-Rwanda/data/Training_tree_polygons`` for the annotation files including the ``.shp`` file).
 
-Within the ``rwanda`` folder, two notebooks are available. ``Training.ipynb`` enables to reproduce the training that led to the models evaluated in the thesis. ``Testing.ipynb`` lets the user inference with the trained model weights from the thesis (or using their own) and also provides the means to evaluate the model metrics for veryfing the AP results.
+Within the ``TreeSegmentation-Rwanda`` folder, two notebooks are available. ``Training.ipynb`` enables to reproduce the training that led to the models evaluated in the thesis. ``Testing.ipynb`` lets the user inference with the trained model weights from the thesis (or using their own) and also provides the means to evaluate the model metrics for veryfing the AP results.
 
-All the experiments are located in the folder ``rwanda/experiments`` and are named following the pattern {Model}{Backbone}_{ConfigurationChanges}. For the configuration changes, see the tables specifying the change keys in the thesis. The model weights are released [here](https://github.com/sbackmann/rwanda-instance/releases/tag/v2.25.0) and will be downloaded automatically if the respective experiment is selected.
+All the experiments are located in the directory ``TreeSegmentation-Rwanda/experiments`` and are named following the pattern {Model}{Backbone}_{ConfigurationChanges}. For the configuration changes, see the tables specifying the change keys in the thesis. The model weights are released [here](https://github.com/sbackmann/rwanda-instance/releases/tag/v2.25.0) and will be downloaded automatically if the respective experiment is selected.
 
 ## License
 
